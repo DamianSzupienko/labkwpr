@@ -1,0 +1,32 @@
+create table Produkty 
+(
+model varchar(30) PRIMARY KEY NOT NULL,
+producent varchar(30),
+typ varchar(10),
+);
+
+create table PC
+(model varchar(30) PRIMARY KEY NOT NULL,
+procesor int,
+ram int,
+hdd int,
+cd int,
+ekran int,
+cena money,
+);
+
+create table Laptop
+(model varchar(30) PRIMARY KEY NOT NULL,
+procesor int,
+ram int,
+hdd int,
+ekran int,
+cena money,
+);
+
+create table Drukarki
+(model varchar(30) PRIMARY KEY NOT NULL,
+kolor bit,
+typ varchar(20),
+cena money,
+);
