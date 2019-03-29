@@ -1,3 +1,8 @@
+USE master
+DROP DATABASE firma_komputerowa
+CREATE DATABASE firma_komputerowa
+USE firma_komputerowa
+
 create table Produkty 
 (
 model varchar(30) PRIMARY KEY NOT NULL,
@@ -30,3 +35,12 @@ kolor bit,
 typ varchar(20),
 cena money,
 );
+
+ALTER TABLE PC
+ADD CONSTRAINT fk_Produkty_PCFOREIGN KEY (model)REFERENCES Produkty(model)
+
+ALTER TABLE Laptop
+ADD CONSTRAINT fk_Produkty_LaptopFOREIGN KEY (model)REFERENCES Produkty(model)
+
+ALTER TABLE Drukarki
+ADD CONSTRAINT fk_Produkty_DrukarkiFOREIGN KEY (model)REFERENCES Produkty(model)
