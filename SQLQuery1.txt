@@ -129,7 +129,7 @@ select avg(procesor) from PC where cena > 3500;
 
 --zadanie11--
 
-select avg(PC.procesor)
+select avg(PC.procesor) 
 from PC
 join Produkty
 on Produkty.model = PC.model
@@ -146,3 +146,6 @@ from Laptopy
 join Produkty
 on Produkty.model = Laptopy.model
 group by cast(Produkty.producent as varchar(50));
+
+--zadanie indywidualne--
+
