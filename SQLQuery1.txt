@@ -77,3 +77,72 @@ insert into Drukarki values('HL-1223WE', 0, 'laserowa', 419);
 insert into Drukarki values('B412dn', 0, 'laserowa', 529);
 insert into Drukarki values('EcoTank ITS L3050', 1, 'atramentowa', 699);
 insert into Drukarki values('EcoTank L3070', 1, 'atramentowa', 829);
+insert into Produkty values('XYZ', 'XYZ', 'drukarka');
+insert into Drukarki values('XYZ', 0, 'laserowa', 829);
+--zadanie1--
+
+select model, procesor, hdd from PC where cena < 2000;
+
+--zadanie2--
+
+select distinct cast (producent as varchar(50)) from Produkty where typ = 'drukarka';
+
+--zadanie3--
+
+select model, RAM, ekran from Laptopy where cena > 2000;
+
+--zadanie4--
+
+select * from Drukarki where kolor = 1;
+
+--zadanie5--
+
+select model, procesor, hdd from PC where (cd = 8 and cena < 2500) or (cd = 16 and cena > 2500);
+
+--zadanie6--
+
+select Produkty.producent, Laptopy.procesor
+from Produkty
+join Laptopy
+on Produkty.model = Laptopy.model
+where Laptopy.hdd >= 500;
+
+--zadanie7--
+
+select Produkty.producent
+from Produkty
+join PC
+on Produkty.model = PC.model
+where PC.procesor >= 3500;
+ 
+--zadanie8--
+
+select model from Drukarki where cena = (select max(cena) from Drukarki);
+
+--zadanie9--
+
+select avg(procesor) from PC;
+
+--zadanie10--
+
+select avg(procesor) from PC where cena > 3500;
+
+--zadanie11--
+
+select avg(PC.procesor)
+from PC
+join Produkty
+on Produkty.model = PC.model
+where cast(Produkty.producent as varchar(50)) = 'DELL';
+
+--zadanie12--
+
+select avg(cena), procesor from PC group by procesor;
+
+--zadanie13--
+
+select avg(Laptopy.ekran), cast(Produkty.producent as varchar(50))
+from Laptopy
+join Produkty
+on Produkty.model = Laptopy.model
+group by cast(Produkty.producent as varchar(50));
