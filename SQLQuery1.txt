@@ -149,3 +149,9 @@ group by cast(Produkty.producent as varchar(50));
 
 --zadanie indywidualne--
 
+
+select top 1 with ties cast(Produkty.producent as varchar(50)) as Prod, avg(Laptopy.ekran) as [Srednia przekatna]
+from Laptopy
+join Produkty on Produkty.model = Laptopy.model
+group by cast(Produkty.producent as varchar(50))
+order by avg(Laptopy.ekran) desc
